@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "355236578397",
+    "project_id": "proyectodammiguel",
+    "storage_bucket": "proyectodammiguel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355236578397:android:223b0b8c7eac2281a879b4",
+        "android_client_info": {
+          "package_name": "com.example.proyectodammiguel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355236578397-34nvmffsqnq2utvi2a9nvq1ufblc5bg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxt644Pb9yiP83uwQdj5UNUUoJH2Yz9GQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355236578397-34nvmffsqnq2utvi2a9nvq1ufblc5bg8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

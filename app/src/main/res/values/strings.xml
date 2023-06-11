@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">ProyectoDamMiguel</string>
+
+    <!-- Principal -->
+    <string name="til1">Viajar es más fácil</string>
+    <string name="til2">Entra y disfruta</string>
+    <string name="author">© by MiguelHorreo</string>
+    <string name="buton1">Iniciar sesión</string>
+    <string name="buton2">Registrarse</string>
+    <string name="title_activity_registro">RegistroActivity</string>
+
+    <!-- Registro -->
+    <string name="nom">Introduce tu nombre</string>
+    <string name="nomAux">Cuéntanos como te llamas.</string>
+
+    <string name="user">Introduce tu nombre de usuario</string>
+    <string name="userAux">Este será con el que te identifiques.</string>
+
+    <string name="mail">Introduce tu correo electrónico</string>
+    <string name="mailAux">Por este medio nos pondremos en contacto contigo si fuese necesario.</string>
+
+    <string name="pass">Introduce tu contraseña</string>
+    <string name="passAux">Recuerda no compartir tu contraseña!</string>
+
+    <string name="buttonContinue">Continuar</string>
+    <string name="buttonRegistro2">Registrarme como taxista</string>
+
+    <!-- Registro taxista -->
+    <string name="buttonRegistroGeneral">Registrarme como usuario general</string>
+    <string name="telfTaxista">Introduce tu número de teléfono móvil.</string>
+    <string name="marcaCoche">Introduce los datos de tu vehículo.</string>
+    <string name="marcaCocheAux">Es imprescindibe para tus futuros clientes.</string>
+    <string name="marcaCoche2">Marca: </string>
+    <string name="modeloCoche">Modelo: </string>
+    <string name="numeroDePlazas">Nºplazas:</string>
+    <string name="finishText">Para finalizar:</string>
+    <string name="combustibleText">Combustible: </string>
+    <string name="agrupacionText">Agrupación: </string>
+    <string name="capthaText">No soy un robot</string>
+
+    <!-- Permisos registro -->
+    <string name="condiciones">Acepto los términos y condiciones de la aplicación</string>
+
+    <!-- Registro movil -->
+    <string name="telf">Por último introduce tu número de teléfono móvil</string>
+    <string name="telfAux">Es muy útil para nosotros.</string>
+
+    <string name="buttonComplete">Completar registro</string>
+
+    <!-- Login -->
+    <string name="userAuxLogin">Puedes introducir tu correo electrónico</string>
+
+    <!-- User Main -->
+    <string name="ubiText">Ubicación actual:</string>
+    <string name="taxText">Taxis disponibles:</string>
+    <string name="buttonSolitar">Solicitar taxi</string>
+    <!-- hints -->
+    <string name="passHint">Contraseña</string>
+    <string name="userInicioHint">Usuario/email</string>
+    <string name="nomHint">Nombre</string>
+    <string name="userHint">Usuario</string>
+    <string name="mailHint">example@gmail.com</string>
+    <string name="telfHint">Telefono</string>
+
+    <!-- Spinner text -->
+    <string name="marcaSpinner">Todas las marcas</string>
+    <string name="modelosSpinner">Todos los modelos</string>
+
+    <!-- Activity profile -->
+    <string name="Ajustes">Ajustes</string>
+    <string name="settingAccountText">Ajustes de cuenta</string>
+    <string name="infoText">Información personal</string>
+    <string name="notificactionsText">Notificaciones</string>
+
+    <!-- Activity Taxista -->
+    <string name="solicitudesText">Solicitudes entrantes</string>
+    <string name="valoracionText">Mi valoración</string>
+    <string name="buttomBorrarText">Borrar</string>
+
+    <string name="nombreSimple">Nombre:</string>
+    <string name="telfContacto">Número de contacto:</string>
+    <string name="horatext">Hora de solicitud:</string>
+    <string name="ubicText">Ubicación del cliente:</string>
+
+
+</resources>

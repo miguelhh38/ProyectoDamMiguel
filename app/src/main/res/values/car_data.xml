@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="car_brands">
+        <item>Toyota</item>
+        <item>Opel</item>
+        <item>Honda</item>
+        <item>Audi</item>
+        <item>Citroen</item>
+        <item>Peugeot</item>
+    </string-array>
+
+    <string-array name="car_models_toyota">
+        <item>Camry</item>
+        <item>Corolla</item>
+        <item>Prius</item>
+    </string-array>
+
+    <string-array name="car_models_opel">
+        <item>Astra</item>
+        <item>Vivaro</item>
+        <item>Zafira</item>
+    </string-array>
+
+    <string-array name="car_models_honda">
+        <item>Insight</item>
+        <item>Civic</item>
+        <item>Accord</item>
+    </string-array>
+
+    <string-array name="car_models_audi">
+        <item>a3</item>
+        <item>a4</item>
+        <item>a5</item>
+    </string-array>
+
+    <string-array name="car_models_citroen">
+        <item>c3</item>
+        <item>c4</item>
+        <item>Picasso</item>
+        <item>SpaceTour</item>
+    </string-array>
+
+    <string-array name="car_models_peugeot">
+        <item>208</item>
+        <item>308</item>
+        <item>3008</item>
+    </string-array>
+
+</resources>
