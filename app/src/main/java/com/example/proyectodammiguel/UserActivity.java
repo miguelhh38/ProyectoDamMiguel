@@ -61,7 +61,7 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<Taxi> allTaxis = new ArrayList<>();
-                for (DataSnapshot dataSnapshot1: snapshot.getChildren()) {
+                for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
                     Taxi taxi = dataSnapshot1.getValue(Taxi.class);
                     if (taxi != null) {
                         allTaxis.add(taxi);
@@ -72,7 +72,7 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
                 double distanciaMinima = calcularDistancia(ubiActual, new LatLng(allTaxis.get(0)
                         .getTaxista().getAgrupacion().getLatitud(), allTaxis.get(0).getTaxista()
                         .getAgrupacion().getLongitud()));
-                for (Taxi taxi: allTaxis) {
+                for (Taxi taxi : allTaxis) {
                     LatLng latLng = new LatLng(taxi.getTaxista().getAgrupacion().getLatitud(),
                             taxi.getTaxista().getAgrupacion().getLongitud());
                     double distancia = calcularDistancia(ubiActual, latLng);
@@ -84,23 +84,23 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
                 taxisRef.orderByChild("taxista/agrupacion/name").equalTo(agrupacionCercana.getName()).
                         addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot dataSnapshot2: snapshot.getChildren()) {
-                            Taxi taxi = dataSnapshot2.getValue(Taxi.class);
-                            if (taxi!=null) {
-                                taxisZona.add(taxi);
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot dataSnapshot2 : snapshot.getChildren()) {
+                                    Taxi taxi = dataSnapshot2.getValue(Taxi.class);
+                                    if (taxi != null) {
+                                        taxisZona.add(taxi);
+                                    }
+                                }
+                                UserActivity.this.listAdapter = new ListAdapter(UserActivity.this, UserActivity.this.taxisZona);
+                                listView.setAdapter(listAdapter);
                             }
-                        }
-                        UserActivity.this.listAdapter = new ListAdapter(UserActivity.this, UserActivity.this.taxisZona);
-                        listView.setAdapter(listAdapter);
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                            }
+                        });
 
             }
 
