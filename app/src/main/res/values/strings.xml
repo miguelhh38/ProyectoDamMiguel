@@ -26,7 +26,7 @@
     <string name="buttonRegistro2">Registrarme como taxista</string>
 
     <!-- Registro taxista -->
-    <string name="buttonRegistroGeneral">Registrarme como usuario general</string>
+    <string name="buttonRegistroGeneral">Registrarme como usuario</string>
     <string name="telfTaxista">Introduce tu número de teléfono móvil.</string>
     <string name="marcaCoche">Introduce los datos de tu vehículo.</string>
     <string name="marcaCocheAux">Es imprescindibe para tus futuros clientes.</string>
@@ -82,5 +82,20 @@
     <string name="horatext">Hora de solicitud:</string>
     <string name="ubicText">Ubicación del cliente:</string>
 
+    <!-- Activity Taxista Solicitud -->
+    <string name="datosTax">Datos del taxista</string>
+    <string name="datosVehiculo">Datos del vehículo</string>
+    <string name="agrupaciontext">Pertenece a </string>
+
+    <string name="numero">Número:</string>
+    <string name="caltext">Calificación:</string>
+
+    <string name="marcat">Marca:</string>
+    <string name="modelot">Modelo:</string>
+    <string name="plazast">Plazas:</string>
+
+    <string name="llamar">Llamar</string>
+    <string name="vacio"> Cargando...
+    </string>
 
 </resources>

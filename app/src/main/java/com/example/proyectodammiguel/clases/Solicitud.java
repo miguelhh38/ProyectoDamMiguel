@@ -13,9 +13,10 @@ public class Solicitud implements Serializable {
     private Double longitud;
 
 
-    public Solicitud () {
+    public Solicitud() {
 
     }
+
     public Solicitud(Taxista taxista, LocalDateTime fecha, User cliente, Double latitud, Double longitud) {
         this.taxista = taxista;
         this.fecha = fecha;

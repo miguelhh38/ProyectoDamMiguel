@@ -1,8 +1,9 @@
 package com.example.proyectodammiguel.clases;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Taxi {
+public class Taxi implements Serializable {
 
     private String marca = "";
     private String modelo = "";
@@ -74,5 +75,4 @@ public class Taxi {
                 '}';
     }
 
-//Map<String, String> map = new HashMap<String, String>();
 }

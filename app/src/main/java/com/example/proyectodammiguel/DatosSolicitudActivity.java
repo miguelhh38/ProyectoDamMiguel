@@ -6,8 +6,12 @@ import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.proyectodammiguel.clases.Solicitud;
@@ -31,6 +35,9 @@ public class DatosSolicitudActivity extends AppCompatActivity implements OnMapRe
     TextView textView1;
     TextView textView2;
     private static Solicitud solicitudActiva;
+    Button buttonLlamar;
+    ImageButton buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +45,8 @@ public class DatosSolicitudActivity extends AppCompatActivity implements OnMapRe
         textView = findViewById(R.id.textView34);
         textView1 = findViewById(R.id.textView36);
         textView2 = findViewById(R.id.textView38);
+        buttonBack = findViewById(R.id.buttonBack50);
+        buttonLlamar = findViewById(R.id.button6);
 
         Intent intent = getIntent();
         solicitudActiva = (Solicitud) intent.getSerializableExtra("solicitud");
@@ -51,6 +60,22 @@ public class DatosSolicitudActivity extends AppCompatActivity implements OnMapRe
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             textView2.setText(DateTimeFormatter.ofPattern("HH:mm").format(solicitudActiva.getFecha()));
         }
+        buttonLlamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + solicitudActiva.getCliente().getTelf()));
+                startActivity(intent);
+            }
+        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DatosSolicitudActivity.this, TaxistaActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
