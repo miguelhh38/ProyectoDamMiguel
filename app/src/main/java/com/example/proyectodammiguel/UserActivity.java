@@ -138,6 +138,8 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Taxi taxi = (Taxi) parent.getItemAtPosition(position);
                 Intent intent = new Intent(UserActivity.this, TaxistaSolicitud.class);
                 intent.putExtra("taxi", taxi);
+                intent.putExtra("latitud", ubiActual.latitude);
+                intent.putExtra("longitud", ubiActual.longitude);
                 startActivity(intent);
             }
         });
@@ -170,16 +172,6 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapLongClick(@NonNull LatLng latLng) {
 
-    }
-
-    private void moveCameraToLocation(LatLng location, float zoomLevel) {
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(location)
-                .zoom(zoomLevel)
-                .build();
-
-        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
     public static double calcularDistancia(LatLng ubicacion1, LatLng ubicacion2) {
