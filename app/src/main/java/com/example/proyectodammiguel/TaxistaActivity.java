@@ -11,14 +11,10 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.proyectodammiguel.clases.Agrupacion;
+
 import com.example.proyectodammiguel.clases.Solicitud;
 import com.example.proyectodammiguel.clases.Taxi;
-import com.example.proyectodammiguel.clases.Taxista;
-import com.example.proyectodammiguel.clases.Tipo;
-import com.example.proyectodammiguel.clases.User;
 import com.example.proyectodammiguel.utils.LiatAdapterSolicitudes;
-import com.example.proyectodammiguel.utils.ListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class TaxistaActivity extends AppCompatActivity {
@@ -41,26 +38,37 @@ public class TaxistaActivity extends AppCompatActivity {
 
     FirebaseAuth mUser;
     DatabaseReference databaseReference;
+    DatabaseReference databaseReference2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taxista);
         imageButton = findViewById(R.id.buttonProfile22);
         listaSolicitudes = findViewById(R.id.listaSolitudes);
+        mUser = FirebaseAuth.getInstance();
+        databaseReference2 = FirebaseDatabase.getInstance().getReference("solicitudes");
+        databaseReference2.orderByChild("taxista/user/mail").equalTo(mUser.getCurrentUser().getEmail()).addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                                Solicitud solicitud = snapshot1.getValue(Solicitud.class);
+                                solicitud.setId(snapshot1.getKey());
+                                solicitudes.add(solicitud);
+                            }
+                            TaxistaActivity.this.listAdapter = new LiatAdapterSolicitudes(TaxistaActivity.this, TaxistaActivity.this.solicitudes);
+                            listaSolicitudes.setAdapter(listAdapter);
+                        }
+                    }
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            Solicitud solicitud = new Solicitud("vk12", new Taxista(new User("Esteban", "esteban123",
-                    "esteban@gmail.com", "671834821", Tipo.USERGENERAL), new Agrupacion("Cangas"
-                    ,43.350935, -5.128437)),
-                    LocalDateTime.now(),
-                    new User("Esteban", "esteban123",
-                            "esteban@gmail.com", "671834821", Tipo.USERGENERAL),
-                    43.350935, -5.128437);
-            solicitudes.add(solicitud);
-        }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-        TaxistaActivity.this.listAdapter = new LiatAdapterSolicitudes(TaxistaActivity.this, this.solicitudes);
-        listaSolicitudes.setAdapter(listAdapter);
+                    }
+                }
+        );
+
 
         listaSolicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -81,7 +89,7 @@ public class TaxistaActivity extends AppCompatActivity {
         });
         textView1 = findViewById(R.id.textView31);
         textView2 = findViewById(R.id.textView32);
-        mUser = FirebaseAuth.getInstance();
+
         databaseReference = FirebaseDatabase.getInstance().getReference("taxis");
 
         databaseReference.orderByChild("taxista/user/mail").equalTo(mUser.getCurrentUser().getEmail()).addListenerForSingleValueEvent(

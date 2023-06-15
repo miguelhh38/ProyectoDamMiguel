@@ -14,6 +14,7 @@ import com.example.proyectodammiguel.R;
 import com.example.proyectodammiguel.clases.Solicitud;
 import com.example.proyectodammiguel.clases.Taxi;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -57,9 +58,16 @@ public class LiatAdapterSolicitudes extends BaseAdapter {
         TextView hora = (TextView) v.findViewById(R.id.textView42);
         id.setText("Solicitud " + solicitud.getId());
         cliente.setText("Cliente: " + solicitud.getCliente().getName());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            hora.setText("Hora: " +  solicitud.getFecha().format(DateTimeFormatter.ofPattern("HH:mm")));
+
+        LocalDateTime localDateTime = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            localDateTime = LocalDateTime.parse(solicitud.getFecha(), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS"));
         }
+        String formattedTime = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            formattedTime = localDateTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+        }
+        hora.setText("Hora: " + formattedTime);
         ImageView imageView = v.findViewById(R.id.imageView40);
         imageView.setImageResource(R.drawable.usuario);
         return v;

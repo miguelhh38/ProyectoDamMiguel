@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.proyectodammiguel.clases.Solicitud;
 import com.example.proyectodammiguel.clases.Taxi;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.Timestamp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -88,8 +90,8 @@ public class TaxistaSolicitud extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Solicitud solicitud = null;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    solicitud = new Solicitud(taxiAcual.getTaxista(), LocalDateTime.now(),
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    solicitud = new Solicitud(taxiAcual.getTaxista(), LocalDateTime.now().toString(),
                             taxiAcual.getTaxista().getUser(), latitud, longitud);
                 }
                 mref.push().setValue(solicitud);

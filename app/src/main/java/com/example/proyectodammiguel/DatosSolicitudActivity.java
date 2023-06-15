@@ -25,6 +25,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -58,7 +59,7 @@ public class DatosSolicitudActivity extends AppCompatActivity implements OnMapRe
         textView1.setText(solicitudActiva.getCliente().getTelf());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            textView2.setText(DateTimeFormatter.ofPattern("HH:mm").format(solicitudActiva.getFecha()));
+            textView2.setText(DateTimeFormatter.ofPattern("HH:mm").format(LocalDateTime.parse(solicitudActiva.getFecha())));
         }
         buttonLlamar.setOnClickListener(new View.OnClickListener() {
             @Override

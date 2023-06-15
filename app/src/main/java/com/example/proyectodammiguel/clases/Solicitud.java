@@ -1,5 +1,7 @@
 package com.example.proyectodammiguel.clases;
 
+import com.google.firebase.Timestamp;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -7,7 +9,7 @@ import java.time.LocalDateTime;
 public class Solicitud implements Serializable {
     private String id;
     private Taxista taxista;
-    private LocalDateTime fecha;
+    private String fecha;
     private User cliente;
     private Double latitud;
     private Double longitud;
@@ -17,7 +19,7 @@ public class Solicitud implements Serializable {
 
     }
 
-    public Solicitud(Taxista taxista, LocalDateTime fecha, User cliente, Double latitud, Double longitud) {
+    public Solicitud(Taxista taxista, String fecha, User cliente, Double latitud, Double longitud) {
         this.taxista = taxista;
         this.fecha = fecha;
         this.cliente = cliente;
@@ -25,7 +27,7 @@ public class Solicitud implements Serializable {
         this.longitud = longitud;
     }
 
-    public Solicitud(String id, Taxista taxista, LocalDateTime fecha, User cliente, Double latitud, Double longitud) {
+    public Solicitud(String id, Taxista taxista, String fecha, User cliente, Double latitud, Double longitud) {
         this.id = id;
         this.taxista = taxista;
         this.fecha = fecha;
@@ -50,11 +52,11 @@ public class Solicitud implements Serializable {
         this.taxista = taxista;
     }
 
-    public LocalDateTime getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDateTime fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
